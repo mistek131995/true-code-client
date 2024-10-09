@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mistek/freedom-ui": "^0.0.65",
     "axios": "^1.7.7",
     "mobx": "^6.13.3",
     "mobx-react-lite": "^4.0.7",

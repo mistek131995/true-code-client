@@ -1,0 +1,13 @@
+.filters-container{
+  margin: 0.5rem 1rem;
+
+  > *:not(:nth-last-child(-n+2)) {
+    width: 100%;
+    margin: 0 0.5rem;
+  }
+
+  > *:nth-last-child(-n+2){
+    margin: 0 0.5rem;
+    text-wrap: nowrap;
+  }
+}

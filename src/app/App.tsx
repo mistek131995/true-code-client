@@ -1,8 +1,12 @@
 import "./styles/style.scss"
+import {BrowserRouter} from "react-router-dom";
+import {PublicRoutes} from "./routes/PublicRoutes.tsx";
 
 function App() {
 
-  return <></>
+  return <BrowserRouter>
+    <PublicRoutes/>
+  </BrowserRouter>
 }
 
 export default App

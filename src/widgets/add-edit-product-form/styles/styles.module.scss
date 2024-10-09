@@ -1,0 +1,15 @@
+.add-edit-form-container{
+  form{
+    width: 25%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin: 0 1rem;
+    }
+  }
+
+  form > * {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
