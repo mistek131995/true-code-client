@@ -1,5 +1,6 @@
 import {Alert, Background, Button} from "@mistek/freedom-ui";
 import {Link} from "react-router-dom";
+import {showAddForm} from "../store/addEditStore.ts";
 
 export const SuccessAdd = () => {
     return <div>
@@ -7,6 +8,6 @@ export const SuccessAdd = () => {
         <Link to="/">
             <Button>На главную</Button>
         </Link>
-        <Button>Добавить новый товар</Button>
+        <Button onClick={showAddForm}>Добавить новый товар</Button>
     </div>
 }

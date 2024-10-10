@@ -1,13 +1,26 @@
 .filters-container{
-  margin: 0.5rem 1rem;
 
-  > *:not(:nth-last-child(-n+2)) {
-    width: 100%;
-    margin: 0 0.5rem;
+  @media (min-width: 768px){
+    margin: 0.5rem 1rem;
+
+    > *:not(:nth-last-child(-n+2)) {
+      margin: 0 0.5rem;
+      width: 100%;
+    }
+
+    > *:nth-last-child(-n+2){
+      margin: 0 0.5rem;
+      text-wrap: nowrap;
+    }
   }
 
-  > *:nth-last-child(-n+2){
-    margin: 0 0.5rem;
-    text-wrap: nowrap;
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    padding: 0.5rem 1rem 0 1rem;
+
+    > * {
+      width: 100% !important;
+      margin: 0.2rem 0;
+    }
   }
 }
