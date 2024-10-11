@@ -3,6 +3,7 @@
 
   &:not(:last-child){
     border-bottom: 1px solid black;
+    margin: 0 0 1rem 0;
   }
 
   &-item{

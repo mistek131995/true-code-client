@@ -5,6 +5,7 @@ import {host} from "../../shared/constants.ts";
 
 const productListStore = observable({
     products: null as unknown as Product[],
+    pageCount: 0,
 });
 
 const getProductListStoreAsync = action(async (page: number = 1) => {
@@ -12,6 +13,7 @@ const getProductListStoreAsync = action(async (page: number = 1) => {
 
         runInAction(() => {
             productListStore.products = response.data.products;
+            productListStore.pageCount = response.data.pageCount;
         })
     })
 })
