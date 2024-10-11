@@ -1,0 +1,29 @@
+.products-row{
+  padding: 1.5rem 0 1rem 0;
+
+  &:not(:last-child){
+    border-bottom: 1px solid black;
+  }
+
+  &-item{
+    flex: 1
+  }
+}
+
+.product-card-container {
+  .image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+
+  &-info > *{
+    display: block;
+    margin: 0.5rem 0 0 0.2rem;
+  }
+}
+
