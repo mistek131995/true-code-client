@@ -19,7 +19,7 @@ export const ProductList = observer(() => {
 
     return groupedProducts?.map((group, groupIndex) => {
         return <Flex key={groupIndex} noWrap={true} className={styles.productsRow} justifyContent={JustifyContent.around}>
-            {group.map((product: Product) => <ProductCard {...product}/>)}
+            {group.map((product: Product) => <ProductCard key={product.id} {...product}/>)}
         </Flex>
     });
 })
