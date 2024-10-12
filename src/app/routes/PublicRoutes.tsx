@@ -6,7 +6,7 @@ import {Layout} from "../layout/Layout.tsx";
 export const PublicRoutes = () => {
     const IndexPage = React.lazy(() => import("../../pages/index"));
     const ProductView = React.lazy(() => import("../../pages/product-view"));
-    const ProductAdd = React.lazy(() => import("../../pages/product-add"));
+    const ProductAdd = React.lazy(() => import("../../pages/product-add-edit"));
 
     return <Suspense fallback={<div>Загрузка...</div>}>
         <Routes>

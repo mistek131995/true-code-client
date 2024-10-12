@@ -14,7 +14,7 @@ export const ProductList = observer(() => {
     }, []);
 
     useEffect(() => {
-        getProductListStoreAsync()
+        getProductListStoreAsync({})
     }, []);
 
     return groupedProducts?.map((group, groupIndex) => {

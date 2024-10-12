@@ -8,14 +8,18 @@ const productListStore = observable({
     pageCount: 0,
 });
 
-const getProductListStoreAsync = action(async (page: number = 1) => {
-    await axios.get(`${host}/product/getproductlist?page=${page}`).then((response) => {
+const getProductListStoreAsync = action(async (filters: Record<string, FormDataEntryValue>, page: number = 1) => {
+    const name = filters["name"] || "";
+    const article = filters["article"] || "";
+    const sorting = filters["sorting"] || "0";
 
-        runInAction(() => {
-            productListStore.products = response.data.products;
-            productListStore.pageCount = response.data.pageCount;
+    await axios.get(`${host}/product/getproductlist?name=${name}&article=${article}&sorting=${sorting}&page=${page}`)
+        .then((response) => {
+            runInAction(() => {
+                productListStore.products = response.data.products;
+                productListStore.pageCount = response.data.pageCount;
+            })
         })
-    })
 })
 
 export {productListStore, getProductListStoreAsync}

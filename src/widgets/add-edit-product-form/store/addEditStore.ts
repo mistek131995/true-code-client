@@ -16,11 +16,12 @@ const getProductAsync = action(async (id: string) => {
 
 const saveProductAsync = action(async (form :  Record<string, FormDataEntryValue>) => {
     const formData = new FormData();
+    formData.append("id", form["id"]);
     formData.append("name", form["name"]);
     formData.append("article", form["article"]);
     formData.append("description", form["description"]);
-    formData.append("price", form["price"]);
-    formData.append("priceWithDiscount", form["priceWithDiscount"]);
+    formData.append("price", form["price"].toString().replace('.', ','));
+    formData.append("priceWithDiscount", form["priceWithDiscount"].toString().replace('.', ','));
     formData.append("imageName", form["priceWithDiscount"]);
     formData.append("image", form["image"]);
 
@@ -35,6 +36,9 @@ const saveProductAsync = action(async (form :  Record<string, FormDataEntryValue
 })
 
 const showAddForm = action(() => addEditState.isSuccess = false);
-const resetProduct = action(() => addEditState.product = null as unknown as Product)
+const resetForm = action(() => {
+    addEditState.product = null as unknown as Product;
+    addEditState.isSuccess = false;
+})
 
-export {addEditState, saveProductAsync, showAddForm, getProductAsync, resetProduct}
+export {addEditState, saveProductAsync, showAddForm, getProductAsync, resetForm}
