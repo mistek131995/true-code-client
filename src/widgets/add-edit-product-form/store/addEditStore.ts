@@ -2,6 +2,7 @@ import {action, observable} from "mobx";
 import axios from "axios";
 import {host} from "../../../shared/constants.ts";
 import {Product} from "../../../entities/Product.ts";
+import {errorToast} from "../../../features/toast-error";
 
 const addEditState = observable({
     product: null as unknown as Product,
@@ -28,9 +29,13 @@ const saveProductAsync = action(async (form :  Record<string, FormDataEntryValue
     axios.post(`${host}/Product/SaveProduct`, formData).then(response => {
         if(response.status === 200) {
             addEditState.isSuccess = true;
-        }else
-        {
-            console.log(response);
+        }
+    }).catch(error => {
+        if(error.response.status === 409) {
+            errorToast(error.response.data.Message)
+        }
+        else if(error.response.status === 400) {
+            errorToast("Поля отмеченные * обязательны к заполнению")
         }
     })
 })

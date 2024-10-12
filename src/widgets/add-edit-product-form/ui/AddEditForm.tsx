@@ -24,19 +24,24 @@ export const AddEditForm = observer(() => {
                    className={styles.hide}
                    defaultValue={addEditState.product?.id}/>
             <Input name="name"
+                   label="Наименование: *"
                    placeholder="Наименование"
                    defaultValue={addEditState.product?.name}/>
             <Input name="article"
+                   label="Артикул: *"
                    placeholder="Артикул"
                    defaultValue={addEditState.product?.article}/>
             <Input name="price"
+                   label="Стоимость: *"
                    placeholder="Стоимость"
                    defaultValue={addEditState.product?.price}/>
             <Input name="priceWithDiscount"
+                   label="Стоимость со скидкой: *"
                    placeholder="Стоимость со скидкой"
                    defaultValue={addEditState.product?.priceWithDiscount}/>
             <Textarea name="description"
                       rows={3}
+                      label="Описание: *"
                       placeholder="Описание" defaultValue={addEditState.product?.description}/>
             <Input type="file" name="image"/>
 
