@@ -8,7 +8,7 @@ export const ProductCard = (props: Product) => {
         <div className={styles.productCardContainer}>
             {props.image &&
                 <div className={styles.imageContainer}>
-
+                    <img src={`data:${props.contentType};base64,${props.image}`} alt={props.fileName}/>
                 </div>
             }
 

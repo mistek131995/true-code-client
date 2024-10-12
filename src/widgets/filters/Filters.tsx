@@ -18,7 +18,7 @@ export const Filters = () => {
             </Link>
         </Flex>
         <Flex className={styles.sortingContainer} justifyContent={JustifyContent.around}>
-            <Radio label="Без сортировки" name="sorting" value={0} checked={true}/>
+            <Radio label="Без сортировки" name="sorting" value={0} defaultChecked={true}/>
             <Radio label="Наименование А-Я" name="sorting" value={1}/>
             <Radio label="Наименование Я-А" name="sorting" value={2}/>
             <Radio label="Цена от большей к меньшей" name="sorting" value={3}/>

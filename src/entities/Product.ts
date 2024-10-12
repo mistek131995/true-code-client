@@ -5,5 +5,7 @@ export type Product = {
     description: string,
     price: number,
     priceWithDiscount: number,
-    image: string
+    image: string,
+    contentType: string,
+    fileName: string,
 }
