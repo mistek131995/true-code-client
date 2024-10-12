@@ -1,0 +1,36 @@
+.view-form-container{
+  margin: 1rem 0 0 0;
+
+  .product-card-container{
+    border-bottom: 1px solid black;
+    padding: 0 0 0.5rem 0;
+    margin: 0 0 0.5rem 0;
+
+    .image-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 200px;
+      border: 1px solid black;
+      border-radius: 3px;
+    }
+
+    label{
+      margin: 0 0.5rem 0 0;
+    }
+
+    .new-price{
+      text-decoration: line-through;
+      margin: 0 0.25rem 0 0;
+    }
+
+    div div{
+      padding: 0 0 0.5rem 0;
+    }
+  }
+
+  .button-container button{
+    margin: 0 0.5rem 0 0;
+  }
+}

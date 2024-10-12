@@ -1,7 +1,21 @@
 import {Button, Form, Input, Textarea} from "@mistek/freedom-ui";
-import {saveProductAsync} from "../store/addEditStore.ts";
+import {getProductAsync, resetProduct, saveProductAsync} from "../store/addEditStore.ts";
+import {useParams} from "react-router-dom";
+import {useEffect} from "react";
 
 export const AddEditForm = () => {
+    const {id} = useParams();
+
+    useEffect(() => {
+        if(id){
+            getProductAsync(id)
+        }
+
+        return () => {
+            resetProduct()
+        }
+    }, [id]);
+
     return <>
         <Form handleSubmit={saveProductAsync}>
             <Input name="name" placeholder="Наименование"/>

@@ -14,6 +14,7 @@ export const PublicRoutes = () => {
                 <Route path="/" element={<IndexPage/>}/>
                 <Route path="/product-view/:id" element={<ProductView/>}/>
                 <Route path="/product-add" element={<ProductAdd/>}/>
+                <Route path="/product-edit/:id" element={<ProductAdd/>}/>
             </Route>
         </Routes>
     </Suspense>
