@@ -1,16 +1,17 @@
-import {Product} from "../../../entities/Product.ts";
 import {Flex, JustifyContent, Label} from "@mistek/freedom-ui";
 import styles from "../style/styles.module.scss";
+import {observer} from "mobx-react-lite";
+import {viewFormState} from "../store/viewFormStore.ts";
 
-export const ProductCard = (props: Product) => {
+export const ProductCard = observer(() => {
     return <Flex justifyContent={JustifyContent.around} className={styles.productCardContainer}>
-        {props.image &&
+        {viewFormState.product?.image &&
             <div className={styles.imageContainer}>
-                <img src={`data:${props.contentType};base64,${props.image}`} alt={props.fileName}/>
+                <img src={`data:${viewFormState.product?.contentType};base64,${viewFormState.product?.image}`} alt={viewFormState.product?.fileName}/>
             </div>
         }
 
-        {!props.image &&
+        {!viewFormState.product?.image &&
             <div className={styles.imageContainer}>
                 Без изображения
             </div>
@@ -18,22 +19,22 @@ export const ProductCard = (props: Product) => {
         <div>
             <div>
                 <Label>Наименование:</Label>
-                {props.name}
+                {viewFormState.product?.name}
             </div>
             <div>
                 <Label>Артикул:</Label>
-                {props.article}
+                {viewFormState.product?.article}
             </div>
             <div>
                 <Label>Стоимость:</Label>
                 <span>
-                    <span className={props.priceWithDiscount > 0 ? styles.newPrice : ""}>
-                        {props.price}руб.
+                    <span className={viewFormState.product?.priceWithDiscount > 0 ? styles.newPrice : ""}>
+                        {viewFormState.product?.price}руб.
                     </span>
 
-                    {props.priceWithDiscount > 0 &&
+                    {viewFormState.product?.priceWithDiscount > 0 &&
                         <span>
-                            {props.priceWithDiscount}руб.
+                            {viewFormState.product?.priceWithDiscount}руб.
                         </span>
                     }
                 </span>
@@ -42,8 +43,8 @@ export const ProductCard = (props: Product) => {
         <div>
             <Label>Описание:</Label>
             <div>
-                {props.description}
+                {viewFormState.product?.description}
             </div>
         </div>
     </Flex>
-}
+})

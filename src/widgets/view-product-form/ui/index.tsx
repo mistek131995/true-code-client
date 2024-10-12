@@ -1,10 +1,11 @@
-import {observer} from "mobx-react-lite";
-import {Button, Flex, JustifyContent} from "@mistek/freedom-ui";
 import styles from "../style/styles.module.scss";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {getProductAsync, viewFormState} from "../store/viewFormStore.ts";
 import {ProductCard} from "./ProductCard.tsx";
+import {SuccessDelete} from "./SuccessDelete.tsx";
+import {ButtonsBar} from "./ButtonsBar.tsx";
+import {observer} from "mobx-react-lite";
 
 export const ViewProductForm = observer(() => {
     const {id} = useParams();
@@ -14,17 +15,15 @@ export const ViewProductForm = observer(() => {
     }, [id]);
 
     return <div className={styles.viewFormContainer}>
-        <ProductCard {...viewFormState.product}/>
-        <Flex justifyContent={JustifyContent.end} className={styles.buttonContainer}>
-            <Link to={`/product-edit/${id}`}>
-                <Button>Редактировать</Button>
-            </Link>
+        {!viewFormState.deleteIsSuccess &&
+            <>
+                <ProductCard/>
+                <ButtonsBar id={id!}/>
+            </>
+        }
 
-            <Button>Удалить</Button>
-
-            <Link to="/">
-                <Button>На главную</Button>
-            </Link>
-        </Flex>
+        {viewFormState.deleteIsSuccess &&
+            <SuccessDelete/>
+        }
     </div>
 })
