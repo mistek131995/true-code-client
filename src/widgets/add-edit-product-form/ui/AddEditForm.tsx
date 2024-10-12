@@ -1,21 +1,12 @@
 import {Button, Form, Input, Textarea} from "@mistek/freedom-ui";
-import {addEditState, getProductAsync, resetForm, saveProductAsync} from "../store/addEditStore.ts";
+import {addEditState, saveProductAsync} from "../store/addEditStore.ts";
 import {useNavigate, useParams} from "react-router-dom";
-import {useEffect} from "react";
 import {observer} from "mobx-react-lite";
 import styles from "../styles/styles.module.scss"
 
 export const AddEditForm = observer(() => {
-    const {id} = useParams();
     const navigate = useNavigate();
-
-    useEffect(() => resetForm(), []);
-
-    useEffect(() => {
-        if(id){
-            getProductAsync(id)
-        }
-    }, [id]);
+    const {id} = useParams();
 
     return <>
         <Form handleSubmit={saveProductAsync}>
@@ -43,6 +34,15 @@ export const AddEditForm = observer(() => {
                       rows={3}
                       label="Описание: *"
                       placeholder="Описание" defaultValue={addEditState.product?.description}/>
+
+            {addEditState.product?.image &&
+                <div>
+                    <img src={`data:${addEditState.product?.contentType};base64,${addEditState.product?.image}`}
+                         alt={addEditState.product?.fileName}/>
+
+                </div>
+            }
+
             <Input type="file" name="image"/>
 
             {id &&
