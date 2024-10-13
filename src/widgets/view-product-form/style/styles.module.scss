@@ -6,6 +6,11 @@
     padding: 0 0 0.5rem 0;
     margin: 0 0 0.5rem 0;
 
+    @media (max-width: 768px) {
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+
     .image-container{
       display: flex;
       justify-content: center;
@@ -14,6 +19,7 @@
       height: 200px;
       border: 1px solid black;
       border-radius: 3px;
+      margin: 0 0 0.5rem 0;
     }
 
     label{
@@ -30,7 +36,24 @@
     }
   }
 
-  .button-container button{
-    margin: 0 0.5rem 0 0;
+  .button-container{
+    @media (max-width: 768px) {
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    > *{
+      margin: 0 0.5rem 0 0;
+
+      @media (max-width: 768px) {
+        margin: 0 0 0.5rem 0;
+        width: 75%;
+
+        button{
+          width: 100%;
+        }
+      }
+    }
   }
 }

@@ -39,11 +39,11 @@ export const ProductCard = observer(() => {
                     }
                 </span>
             </div>
-        </div>
-        <div>
-            <Label>Описание:</Label>
             <div>
-                {viewFormState.product?.description}
+                <Label>Описание:</Label>
+                <span>
+                    {viewFormState.product?.description}
+                </span>
             </div>
         </div>
     </Flex>
