@@ -1,11 +1,11 @@
 import {Button, ButtonBackground, Flex, Form, Input, JustifyContent, Radio} from "@mistek/freedom-ui";
 import styles from "./styles.module.scss";
 import {Link} from "react-router-dom";
-import {getProductListStoreAsync} from "../../features/product-list/product-list-store.ts";
+import {applyFilters} from "./filterStore.ts";
 
 export const Filters = () => {
 
-    return <Form handleSubmit={(form) => getProductListStoreAsync(form)}>
+    return <Form handleSubmit={applyFilters}>
         <Flex className={styles.filtersContainer} noWrap={true}>
             <Input type="text" placeholder="Введите наименование" name="name"/>
             <Input type="text" placeholder="Введите артикул" name="article"/>

@@ -9,7 +9,7 @@ export const Pagination = observer(() => {
     return <Flex justifyContent={JustifyContent.center} className={styles.paginationContainer}>
         {
             arrayWithIndices.map(page => {
-                return <Button key={page} onClick={() => getProductListStoreAsync({}, page)}>{page}</Button>
+                return <Button key={page} onClick={() => getProductListStoreAsync(page)}>{page}</Button>
             })
         }
     </Flex>
