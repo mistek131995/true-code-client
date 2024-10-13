@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss"
 import {Product} from "../../entities/Product.ts";
-import {Label} from "@mistek/freedom-ui";
+import {Flex, JustifyContent, Label} from "@mistek/freedom-ui";
 import {Link} from "react-router-dom";
 
 export const ProductCard = (props: Product) => {
@@ -19,7 +19,20 @@ export const ProductCard = (props: Product) => {
             }
 
             <div className={styles.productCardContainerInfo}>
-                <Label>{props.name}</Label>
+                <Flex justifyContent={JustifyContent.between}>
+                    <Label>{props.name} </Label>
+                    <span>({props.article})</span>
+                </Flex>
+                <Flex justifyContent={JustifyContent.between}>
+                    <Label>Цена: </Label>
+                    {props.priceWithDiscount == 0 &&
+                        <span>{props.price}руб.</span>
+                    }
+
+                    {props.priceWithDiscount > 0 &&
+                        <span>{props.priceWithDiscount}руб.</span>
+                    }
+                </Flex>
             </div>
         </div>
     </Link>
