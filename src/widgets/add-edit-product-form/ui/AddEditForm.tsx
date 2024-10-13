@@ -1,5 +1,5 @@
-import {Button, Form, Input, Textarea} from "@mistek/freedom-ui";
-import {addEditState, saveProductAsync} from "../store/addEditStore.ts";
+import {Button, ButtonBackground, Form, Input, Textarea} from "@mistek/freedom-ui";
+import {addEditState, deleteProductImageAsync, saveProductAsync} from "../store/addEditStore.ts";
 import {useNavigate, useParams} from "react-router-dom";
 import {observer} from "mobx-react-lite";
 import styles from "../styles/styles.module.scss"
@@ -39,7 +39,9 @@ export const AddEditForm = observer(() => {
                 <div>
                     <img src={`data:${addEditState.product?.contentType};base64,${addEditState.product?.image}`}
                          alt={addEditState.product?.fileName}/>
-
+                    <Button bg={ButtonBackground.danger} onClick={() => deleteProductImageAsync(id!)} type="button">
+                        Удалить изображение
+                    </Button>
                 </div>
             }
 
