@@ -5,6 +5,7 @@ import {Product} from "../../entities/Product.ts";
 import {Flex, JustifyContent} from "@mistek/freedom-ui";
 import styles from "./styles.module.scss"
 import {ProductCard} from "./ProductCard.tsx";
+import {productListFilersStore} from "../../features/product-list-filers/product-list-filers-store.ts";
 
 export const ProductList = observer(() => {
     const groupedProducts = productListStore.products?.reduce<Product[][]>((acc, product, index) => {
@@ -14,7 +15,11 @@ export const ProductList = observer(() => {
     }, []);
 
     useEffect(() => {
-        getProductListStoreAsync()
+        getProductListStoreAsync({
+            name: productListFilersStore.name,
+            article: productListFilersStore.article,
+            sorting: productListFilersStore.sorting.toString()
+        })
     }, []);
 
     return groupedProducts?.map((group, groupIndex) => {

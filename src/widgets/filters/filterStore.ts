@@ -7,7 +7,11 @@ const applyFilters = action(async (form:  Record<string, FormDataEntryValue>) =>
     productListFilersStore.article = form["article"]?.toString() || "";
     productListFilersStore.sorting = Number(form["sorting"]) || 0;
 
-    await getProductListStoreAsync();
+    await getProductListStoreAsync({
+        name: productListFilersStore.name,
+        article: productListFilersStore.article,
+        sorting: productListFilersStore.sorting.toString()
+    });
 })
 
 export {applyFilters}
