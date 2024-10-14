@@ -29,10 +29,20 @@
   }
 }
 
-.sorting-container div {
-  margin: 0 1rem 0 0;
+.sorting-container{
+  margin: 1rem 0 0 0;
 
   @media (max-width: 768px) {
-    margin: 0 0 1rem 0;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+  }
+
+  div {
+    margin: 0 1rem 0 0;
+
+    @media (max-width: 768px) {
+      margin: 0 0 0.5rem 0;
+    }
   }
 }
